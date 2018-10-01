@@ -10,7 +10,7 @@ $(document).ready(function() {
     $(".fullscreen").css("height", window_height)
     $(".fitscreen").css("height", fitscreen);
 
-    //------- Niceselect  js --------//  
+    //------- Niceselect  js --------//
 
     if (document.getElementById("default-select")) {
         $('select').niceSelect();
@@ -19,7 +19,7 @@ $(document).ready(function() {
         $('select').niceSelect();
     };
 
-    //------- Lightbox  js --------//  
+    //------- Lightbox  js --------//
 
     $('.img-gal').magnificPopup({
         type: 'image',
@@ -36,15 +36,16 @@ $(document).ready(function() {
         fixedContentPos: false
     });
 
-    //------- Datepicker  js --------//  
+    //------- Datepicker  js --------//
 
       $( function() {
         $( "#datepicker" ).datepicker();
+        $( "#datepicker1" ).datepicker();
         $( "#datepicker2" ).datepicker();
       } );
 
 
-    //------- Superfist nav menu  js --------//  
+    //------- Superfist nav menu  js --------//
 
     $('.nav-menu').superfish({
         animation: {
@@ -80,7 +81,7 @@ $(document).ready(function() {
                     },
                     callbacks: {
                         beforeOpen: function() {
-                            // just a hack that adds mfp-anim class to markup 
+                            // just a hack that adds mfp-anim class to markup
                             this.st.image.markup = this.st.image.markup.replace("mfp-figure", "mfp-figure mfp-with-anim");
                             this.st.mainClass = this.st.el.attr("data-effect");
                         }
@@ -91,9 +92,9 @@ $(document).ready(function() {
         });
         feed.run();
     }
-    
 
-    //------- Mobile Nav  js --------//  
+
+    //------- Mobile Nav  js --------//
 
     if ($('#nav-menu-container').length) {
         var $mobile_nav = $('#nav-menu-container').clone().prop({
@@ -134,7 +135,7 @@ $(document).ready(function() {
         $("#mobile-nav, #mobile-nav-toggle").hide();
     }
 
-    //------- Smooth Scroll  js --------//  
+    //------- Smooth Scroll  js --------//
 
     $('.nav-menu a, #mobile-nav a, .scrollto').on('click', function() {
         if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
@@ -195,7 +196,7 @@ $(document).ready(function() {
 
     });
 
-    //------- Header Scroll Class  js --------//  
+    //------- Header Scroll Class  js --------//
 
     $(window).scroll(function() {
         if ($(this).scrollTop() > 100) {
@@ -205,7 +206,7 @@ $(document).ready(function() {
         }
     });
 
-    //------- Google Map  js --------//  
+    //------- Google Map  js --------//
 
     if (document.getElementById("map")) {
         google.maps.event.addDomListener(window, 'load', init);
@@ -341,7 +342,7 @@ $(document).ready(function() {
         }
     }
 
-    //------- Mailchimp js --------//  
+    //------- Mailchimp js --------//
 
     $(document).ready(function() {
         $('#mc_embed_signup').find('form').ajaxChimp();
