@@ -53,7 +53,7 @@
 						</div>-->
 						<div class="col-lg-4  col-md-6 header-right" style="">
 							<h4 class="pb-30">Nueva reserva!</h4>
-							<form class="form">
+							<form class="form" id="form_reservas">
 							    <div class="from-group">
 							    <input class="form-control txt-field" type="text" name="nombre_pasajero" placeholder="Nombre del pasajero"  onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nombre pasajero'">
 							   	<input class="form-control txt-field" type="email" name="email" placeholder="E-mail" onfocus="this.placeholder = ''" onblur="this.placeholder = 'E-mail'">
@@ -62,7 +62,7 @@
 							    </div>
 									<div class="form-group">
 										<div class="default-select" id="default-select">
-											<select>
+											<select name="camas">
 												<option value="" disabled selected hidden disabled style="color: white;">Camas</option>
 												<option value="1">1 cama matrimonial</option>
 												<option value="2">1 cama simple</option>
@@ -72,7 +72,8 @@
 									</div>
 							    <div class="form-group">
 									<div class="input-group dates-wrap">
-										<input id="datepicker2" class="dates form-control"  placeholder="Fecha llegada" type="text">
+										<input id="datepicker1" class="dates form-control"  placeholder="Fecha llegada" type="text">
+										<input type="text" id="fl" name="fecha_llegada" style="display:none;">
 										<div class="input-group-prepend">
 											<span  class="input-group-text"><span class="lnr lnr-calendar-full"></span></span>
 										</div>
@@ -80,7 +81,8 @@
 							    </div>
 							    <div class="form-group">
 										<div class="input-group dates-wrap">
-											<input id="datepicker1" class="dates form-control"  placeholder="Fecha salida" type="text">
+											<input id="datepicker2" class="dates form-control"  placeholder="Fecha salida" type="text">
+											<input type="text" id="fs" name="fecha_salida" style="display:none;">
 											<div class="input-group-prepend">
 												<span  class="input-group-text"><span class="lnr lnr-calendar-full"></span></span>
 											</div>
@@ -88,11 +90,11 @@
 							    </div>
 									<div class="form-group">
 										<div class="input-group dates-wrap">
-											<input  class="dates form-control timepicker" type="text" placeholder="Hora llegada">
+											<input  class="dates form-control timepicker" type="text" placeholder="Hora llegada"  name="hora_llegada">
 										</div>
 									</div>
 							    <div class="form-group">
-							            <button class="btn btn-default btn-lg btn-block text-center text-uppercase">Reservar</button>
+							            <button class="btn btn-default btn-lg btn-block text-center text-uppercase" id="btn_enviar_reserva">Reservar</button>
 							    </div>
 							</form>
 						</div>
@@ -101,8 +103,9 @@
 								<h4 class="pb-30">Reservas</h4>
 									<div class="form-group">
 										<div class="input-group dates-wrap">
-
-
+											<div id="reservas">
+												Reservas
+											</div>
 										</div>
 									</div>
 								</div>
@@ -127,6 +130,8 @@
 			<script src="js/mail-script.js"></script>
 			<script type="text/javascript" src="js/timepicker/jquery.timepicker.min.js"></script>
 <!-- End footer Area -->
+<!-- Mis script -->
 				<script src="js/main.js"></script>
+				<script src="js/fast-reserv.js"></script>
 		</body>
 	</html>

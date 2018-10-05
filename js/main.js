@@ -39,9 +39,22 @@ $(document).ready(function() {
     //------- Datepicker  js --------//
 
       $( function() {
-        $( "#datepicker" ).datepicker();
-        $( "#datepicker1" ).datepicker();
-        $( "#datepicker2" ).datepicker();
+        // $( "#datepicker" ).datepicker();
+        $( "#datepicker1" ).datepicker({
+          altField: "#fl",
+          altFormat: "yy-mm-dd"
+        });
+        // $( "#datepicker2" ).datepicker();
+        // $( "#datepicker2" ).datepicker( "option", "dateFormat","yy-mm-dd");
+
+
+          $( "#datepicker2" ).datepicker({
+            altField: "#fs",
+            altFormat: "yy-mm-dd"
+          });
+
+
+
       } );
 
       $('.timepicker').timepicker({    timeFormat: 'h:mm p',
