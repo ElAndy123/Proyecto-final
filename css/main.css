@@ -1948,13 +1948,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .default-select .nice-select .list .option.selected {
-  color: #f9d700;
+  color:grey;
   background: transparent;
 }
 
 .default-select .nice-select .list .option:hover {
-  color: #f9d700;
-  background: transparent;
+  color:  #328694;
+  background: black;
 }
 
 .default-select .current {
