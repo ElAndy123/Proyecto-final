@@ -16,7 +16,7 @@
 		<!-- Site Title -->
 		<title>Fast Reserv</title>
 
-		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+		<!-- <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> -->
 			<!--
 			CSS
 			============================================= -->
@@ -28,6 +28,7 @@
 			<link rel="stylesheet" href="css/animate.min.css">
 			<link rel="stylesheet" href="css/jquery-ui.css">
 			<link rel="stylesheet" href="css/main.css">
+			<link rel="stylesheet" href="js/timepicker/jquery.timepicker.min.css">
 		</head>
 		<body>
 			  <header id="header">
@@ -87,10 +88,7 @@
 							    </div>
 									<div class="form-group">
 										<div class="input-group dates-wrap">
-											<input  class="dates form-control" type="" placeholder="Hora llegada">
-											<div class="input-group-prepend">
-												<span  class="input-group-text"><span>00:00</span></span>
-											</div>
+											<input  class="dates form-control timepicker" type="text" placeholder="Hora llegada">
 										</div>
 									</div>
 							    <div class="form-group">
@@ -103,10 +101,8 @@
 								<h4 class="pb-30">Reservas</h4>
 									<div class="form-group">
 										<div class="input-group dates-wrap">
-											<input  class="dates form-control" type="" placeholder="Hora llegada">
-											<div class="input-group-prepend">
-												<span  class="input-group-text"><span>00:00</span></span>
-											</div>
+
+
 										</div>
 									</div>
 								</div>
@@ -118,10 +114,10 @@
 			<!-- End banner Area -->
 			<!-- End footer Area -->
 			<script src="js/vendor/jquery-2.2.4.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+			<script src="js/popper/popper.min.js"></script>
 			<script src="js/vendor/bootstrap.min.js"></script>
-			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-  			<script src="js/easing.min.js"></script>
+			<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script> -->
+  		<script src="js/easing.min.js"></script>
 			<script src="js/hoverIntent.js"></script>
 			<script src="js/superfish.min.js"></script>
 			<script src="js/jquery.ajaxchimp.min.js"></script>
@@ -129,6 +125,8 @@
  			<script src="js/jquery-ui.js"></script>
 			<script src="js/jquery.nice-select.min.js"></script>
 			<script src="js/mail-script.js"></script>
-			<script src="js/main.js"></script>
+			<script type="text/javascript" src="js/timepicker/jquery.timepicker.min.js"></script>
+<!-- End footer Area -->
+				<script src="js/main.js"></script>
 		</body>
 	</html>
