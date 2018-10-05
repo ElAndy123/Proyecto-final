@@ -1,11 +1,13 @@
 <?php
     $to = 'demo@site.com';
-    $name = $_POST["name"];
-    $email= $_POST["email"];
-    $text= $_POST["message"];
-    $subject= $_POST["subject"];
-    
-
+    $name = $_POST["nombre_pasajero"];
+    $email = $_POST["email"];
+    $celular = $_POST["celular"];
+    $habitacion = $_POST["habitacion"];
+    $camas =  $_POST["camas"];
+    $camas =  $_POST["fecha_llegada"];
+    $camas =  $_POST["fecha_salida"];
+    $hora_llegada =  $_POST["hora_llegada"];
 
     $headers = 'MIME-Version: 1.0' . "\r\n";
     $headers .= "From: " . $email . "\r\n"; // Sender's E-mail
@@ -18,7 +20,7 @@
         <tr><td>Email: '.$email.'</td></tr>
         <tr><td>phone: '.$subject.'</td></tr>
         <tr><td>Text: '.$text.'</td></tr>
-        
+
     </table>';
 
     if (@mail($to, $email, $message, $headers))
