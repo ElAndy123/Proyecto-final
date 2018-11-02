@@ -77,12 +77,12 @@ switch ($camas) {
       </div>
       <div class="form-group">
         <div class="default-select" id="default-select">
-          <select name="camas">
+         <select name="camas"  class="form-control txt-field">
             <option value="" disabled <?=$default?> >Camas</option>
             <option value="1" <?=$cama_matrimonial?> >1 cama matrimonial</option>
             <option value="2" <?=$cama_simple?> >1 cama simple</option>
             <option value="3" <?=$dos_camas?> >2 camas simples</option>
-          </select>
+        </select>
         </div>
       </div>
       <div class="form-group">
@@ -109,7 +109,9 @@ switch ($camas) {
         </div>
       </div>
       <div class="form-group">
-              <button class="btn btn-default btn-lg btn-block text-center text-uppercase" id_reserva=<?=$id_reserva?> id="btn_enviar_reserva">Enviar</button>
-              
+
+              <button class="col-lg-4 col-md-4  btn btn-default btn-lg" id="btn_enviar_reserva" id_reserva="<?=$id_reserva?>">Enviar</button>
+              <button class="col-lg-6 col-md-6  btn btn-default btn-lg" id="btn_nueva_reserva">Nueva reserva</button>
+
       </div>
   </form>

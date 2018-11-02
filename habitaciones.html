@@ -58,12 +58,26 @@
 
 			<!-- Start reviews Area -->
 			<section class="reviews-area section-gap">
-				<div class="overlay overlay-bg"></div>
+
 				<div class="container">
-					<div class="row section-title">
-						<h1 style="color: #f4e700">Habitaciones</h1>
-						<p></p>
-					</div>
+					<div class="form-group">
+		      <div class="input-group dates-wrap">
+		        <input id="datepicker1" class="dates form-control"  placeholder="Fecha llegada" type="text" value="<?=$fecha_llegada_visible?>">
+		        <input type="text" id="fl" name="fecha_llegada" style="display:none;" value="<?=$fecha_llegada?>">
+		        <div class="input-group-prepend">
+		          <span  class="input-group-text"><span class="lnr lnr-calendar-full"></span></span>
+		        </div>
+		      </div>
+		      </div>
+					<div class="form-group">
+		      <div class="input-group dates-wrap">
+		        <input id="datepicker2" class="dates form-control"  placeholder="Fecha llegada" type="text" value="<?=$fecha_llegada_visible?>">
+		        <input type="text" id="fl" name="fecha_salida" style="display:none;" value="<?=$fecha_salida?>">
+		        <div class="input-group-prepend">
+		          <span  class="input-group-text"><span class="lnr lnr-calendar-full"></span></span>
+		        </div>
+		      </div>
+		      </div>
 					<div class="row">
 						<div class="col-lg-4 col-md-6">
 							<div class="single-review">
@@ -71,7 +85,8 @@
 								<p>
 									Ocupada:<br>
 									Desde:<br>
-									Hasta:
+									Hasta:<br>
+									Camas:
 								</p>
 							</div>
 						</div>
@@ -81,7 +96,8 @@
 								<p>
 									Ocupada:<br>
 									Desde:<br>
-									Hasta:
+									Hasta:<br>
+									Camas:
 								</p>
 							</div>
 						</div>
@@ -91,7 +107,8 @@
 								<p>
 									Ocupada:<br>
 									Desde:<br>
-									Hasta:
+									Hasta:<br>
+									Camas:
 								</p>
 							</div>
 						</div>
@@ -101,7 +118,8 @@
 								<p>
 									Ocupada:<br>
 									Desde:<br>
-									Hasta:
+									Hasta:<br>
+									Camas:
 								</p>
 							</div>
 						</div>
@@ -111,7 +129,8 @@
 								<p>
 									Ocupada:<br>
 									Desde:<br>
-									Hasta:
+									Hasta:<br>
+									Camas:
 								</p>
 							</div>
 						</div>
@@ -121,7 +140,8 @@
 								<p>
 									Ocupada:<br>
 									Desde:<br>
-									Hasta:
+									Hasta:<br>
+									Camas:
 								</p>
 							</div>
 						</div>
@@ -135,7 +155,7 @@
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 			<script src="js/vendor/bootstrap.min.js"></script>
 			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-  			<script src="js/easing.min.js"></script>
+  		<script src="js/easing.min.js"></script>
 			<script src="js/hoverIntent.js"></script>
 			<script src="js/superfish.min.js"></script>
 			<script src="js/jquery.ajaxchimp.min.js"></script>
@@ -144,5 +164,6 @@
 			<script src="js/jquery.nice-select.min.js"></script>
 			<script src="js/mail-script.js"></script>
 			<script src="js/main.js"></script>
+			<script src="js/disponibilidad.js"></script>
 		</body>
 	</html>

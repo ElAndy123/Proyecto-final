@@ -24,7 +24,6 @@ $(document).ready(function() {
         } else {
           alert ("Complete todos los datos")
         }
-      //  alert ("datos guardados: " + result);
       }
     });
 
@@ -117,19 +116,14 @@ $("#reservas").on("click", ".btn_editar_reserva", function(e){
     e.preventDefault(); //no recarga pagina
   var id =  $(this).attr("id_reserva");
   traer_formulario(id);
-  // var datos = $("#form_reservas").serialize();
-  // $.ajax({
-  //   method: "POST",
-  //   url: "assets/abm_reservas.php",
-  //   data: datos+"&id_reserva="+id+"&a=modi",
-  //   success: function(result){
-  //     if(result=="ok"){
-  //       alert ("Reserva modificada correctamente");
-  //        traer_reservas();
-  //     } else {
-  //       alert ("No se pudo modificar");
-  //     }
-  //   //  alert ("datos guardados: " + result);
-  //   }
-  // });
+
 });
+ $("#formulario").on("click", "#btn_nueva_reserva", function(e){
+     e.preventDefault(); //no recarga pagina
+     traer_formulario(0); //recargo y vacio el formulario
+});
+
+
+//Seccion HABITACIONES//Seccion HABITACIONES//Seccion HABITACIONES//Seccion HABITACIONES
+////Seccion HABITACIONES//Seccion HABITACIONES//Seccion HABITACIONES//Seccion HABITACIONES
+////Seccion HABITACIONES//Seccion HABITACIONES//Seccion HABITACIONES//Seccion HABITACIONES
