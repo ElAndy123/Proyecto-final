@@ -36,37 +36,28 @@ $(document).ready(function() {
         fixedContentPos: false
     });
 
-    //------- Datepicker  js --------//
+    // //------- Datepicker  js --------//
+    //
+    //   $( function() {
+    //     // $( "#datepicker" ).datepicker();
+    //     $( "#datepicker1" ).datepicker({
+    //       altField: "#fl",
+    //       altFormat: "yy-mm-dd"
+    //     });
+    //     // $( "#datepicker2" ).datepicker();
+    //     // $( "#datepicker2" ).datepicker( "option", "dateFormat","yy-mm-dd");
+    //
+    //
+    //       $( "#datepicker2" ).datepicker({
+    //         altField: "#fs",
+    //         altFormat: "yy-mm-dd"
+    //       });
+    //
+    //
+    //
+    //   } );
 
-      $( function() {
-        // $( "#datepicker" ).datepicker();
-        $( "#datepicker1" ).datepicker({
-          altField: "#fl",
-          altFormat: "yy-mm-dd"
-        });
-        // $( "#datepicker2" ).datepicker();
-        // $( "#datepicker2" ).datepicker( "option", "dateFormat","yy-mm-dd");
 
-
-          $( "#datepicker2" ).datepicker({
-            altField: "#fs",
-            altFormat: "yy-mm-dd"
-          });
-
-
-
-      } );
-
-      $('.timepicker').timepicker({    timeFormat: 'h:mm p',
-    interval: 15,
-    minTime: '10',
-    maxTime: '6:00pm',
-    defaultTime: 'hora llegada',
-    startTime: '10:00',
-    dynamic: false,
-    dropdown: true,
-    scrollbar: false,
-  });
 
     //------- Superfist nav menu  js --------//
 
