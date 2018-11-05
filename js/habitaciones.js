@@ -1,6 +1,7 @@
 $(document).ready(function() {
+  traer_habitaciones();
 
-  function funciones_formulario() {
+  function funciones_buscador() {
     // $( "#datepicker" ).datepicker();
     $( "#datepicker1" ).datepicker({
       altField: "#fl",
@@ -26,8 +27,19 @@ $(document).ready(function() {
         dropdown: true,
         scrollbar: false,
   });
-  } ;
+  };
+  function traer_habitaciones(){
+    $.ajax({
+      method: "POST",
+      url: "assets/lista_habitaciones.php",
+      success: function(result){
 
+            $("#habitaciones").html(result)
+
+      //  alert ("datos guardados: " + result);
+      }
+    });
+  }
 
 
 });

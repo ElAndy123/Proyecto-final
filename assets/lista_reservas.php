@@ -25,7 +25,12 @@
     $fecha_salida =  $fila["fecha_salida"];
     $hora_llegada =  $fila["hora_llegada"];
     $id = $fila["id"];
-    echo "$nombre_pasajero, $email, $telefono_celular, $habitacion, $fecha_llegada, $fecha_salida, $hora_llegada";
+    $fecha_llegada_visible = "";
+    $fecha_salida_visible = "";
+//    $fecha_llegada_original = $fecha_llegada;
+    $fecha_llegada_visible = date("d/m/Y", strtotime($fecha_llegada));
+    $fecha_salida_visible = date("d/m/Y", strtotime($fecha_salida));
+    echo "$nombre_pasajero, $email, $telefono_celular, $habitacion, $fecha_llegada_visible, $fecha_salida_visible, $hora_llegada";
     echo "<br>";
     echo '<button id_reserva="'.$id.'" class="btn_editar_reserva">Editar</button>
           <button id_reserva="'.$id.'"  class="btn_eliminar_reserva">Eliminar</button>';

@@ -36,8 +36,8 @@ if($id_reserva>0){
         $fecha_llegada_visible = "";
         $fecha_salida_visible = "";
     //    $fecha_llegada_original = $fecha_llegada;
-        $fecha_llegada_visible = date("m/d/Y", strtotime($fecha_llegada));
-        $fecha_salida_visible = date("m/d/Y", strtotime($fecha_salida));
+        $fecha_llegada_visible = date("d/m/Y", strtotime($fecha_llegada));
+        $fecha_salida_visible = date("d/m/Y", strtotime($fecha_salida));
       }
 }//fin if
 $cama_matrimonial="";
