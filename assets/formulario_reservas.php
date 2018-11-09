@@ -7,7 +7,7 @@ $id_reserva = $_POST["id_reserva"];
 $nombre_pasajero = "";
 $email = "";
 $telefono_celular = "";
-$habitacion =  "";
+$id_habitacion =  "";
 $camas =  "";
 $fecha_llegada =  "";
 $fecha_salida = "";
@@ -27,7 +27,7 @@ if($id_reserva>0){
         $nombre_pasajero = $fila["nombre_pasajero"];
         $email = $fila["e-mail"];
         $telefono_celular = $fila["telefono_celular"];
-        $habitacion = $fila["habitacion"];
+        $id_habitacion = $fila["id_habitacion"];
         $camas =  $fila["camas"];                                 //guardo en variables los datos del formulario
         $fecha_llegada =  $fila["fecha_llegada"]; //    dd/mm/yyyy
         $fecha_salida =  $fila["fecha_salida"];
@@ -73,7 +73,19 @@ switch ($camas) {
       <input class="form-control txt-field" type="text" name="nombre_pasajero" value="<?=$nombre_pasajero?>" placeholder="Nombre del pasajero"  onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nombre pasajero'">
       <input class="form-control txt-field" type="email" name="email" value="<?=$email?>" placeholder="E-mail" onfocus="this.placeholder = ''" onblur="this.placeholder = 'E-mail'">
       <input class="form-control txt-field" type="tel" name="celular" value="<?=$telefono_celular?>" placeholder="Telefono celular" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Telefono celular'">
-      <input class="form-control txt-field" type="text" name="habitacion" value="<?=$habitacion?>" placeholder="Habitacion"  onfocus="this.placeholder = ''" onblur="this.placeholder = 'Habitacion'">
+      <div class="form-group">
+        <div class="default-select" id="default-select">
+         <select name="camas"  class="form-control txt-field">
+            <option value="" disabled<?=$default?>>Habitacion</option>
+            <option value="1" <?=$id_habitacion?>>Caléndula</option>
+            <option value="2" <?=$id_habitacion?>>Arrayán</option>
+            <option value="3" <?=$id_habitacion?>>Llanten</option>
+            <option value="4" <?=$id_habitacion?>>Abedul</option>
+            <option value="5" <?=$id_habitacion?>>Tomillo</option>
+            <option value="6" <?=$id_habitacion?>>Chilco</option>
+        </select>
+        </div>
+      </div>
       </div>
       <div class="form-group">
         <div class="default-select" id="default-select">

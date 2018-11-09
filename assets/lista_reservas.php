@@ -19,7 +19,7 @@
     $nombre_pasajero = $fila["nombre_pasajero"];
     $email = $fila["e-mail"];
     $telefono_celular = $fila["telefono_celular"];
-    $habitacion = $fila["habitacion"];
+    $id_habitacion = $fila["id_habitacion"];
     $camas =  $fila["camas"];                                 //guardo en variables los datos del formulario
     $fecha_llegada =  $fila["fecha_llegada"]; //    dd/mm/yyyy
     $fecha_salida =  $fila["fecha_salida"];
@@ -30,7 +30,7 @@
 //    $fecha_llegada_original = $fecha_llegada;
     $fecha_llegada_visible = date("d/m/Y", strtotime($fecha_llegada));
     $fecha_salida_visible = date("d/m/Y", strtotime($fecha_salida));
-    echo "$nombre_pasajero, $email, $telefono_celular, $habitacion, $fecha_llegada_visible, $fecha_salida_visible, $hora_llegada";
+    echo "$nombre_pasajero, $email, $telefono_celular, $id_habitacion, $fecha_llegada_visible, $fecha_salida_visible, $hora_llegada";
     echo "<br>";
     echo '<button id_reserva="'.$id.'" class="btn_editar_reserva">Editar</button>
           <button id_reserva="'.$id.'"  class="btn_eliminar_reserva">Eliminar</button>';

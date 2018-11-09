@@ -13,8 +13,8 @@
             <div class="single-review">
               <h4 class="pb-30">Reservas</h4>
                 <div class="form-group">
-                  <div class="input-group dates-wrap" >
-                    <div id="reservas">
+                  <div class="dates-wrap" >
+                    <div id="reservas" >
                     aca van reservas ajax
                     </div>
 

@@ -14,7 +14,7 @@
         $fecha_salida =  $_POST["fecha_salida"];
         $hora_llegada =  $_POST["hora_llegada"];
 
-        $agregar = "INSERT INTO `proyecto`.`reservas` (`nombre_pasajero`, `e-mail`, `telefono_celular`, `habitacion`, `camas`, `fecha_llegada`, `fecha_salida`, `hora_llegada`) VALUES
+        $agregar = "INSERT INTO `proyecto`.`reservas` (`nombre_pasajero`, `e-mail`, `telefono_celular`, `id_habitacion`, `camas`, `fecha_llegada`, `fecha_salida`, `hora_llegada`) VALUES
                                                         ('$nombre_pasajero', '$email', '$telefono_celular', '$habitacion', '$camas', '$fecha_llegada', '$fecha_salida', '$hora_llegada');";
                                                         //guardo los datos del formulario en la base de datos
         $resultado = mysqli_query($conexion, $agregar); //ejecuto la accion
@@ -37,18 +37,19 @@
         $hora_llegada =  $_POST["hora_llegada"];
 
         $editar = "UPDATE `proyecto`.`reservas`
-        SET `nombre_pasajero` = '$nombre_pasajero', `e-mail` = '$email', `telefono_celular` = '$telefono_celular', `habitacion` = '$habitacion', `camas` = '$camas', `fecha_llegada` = '$fecha_llegada', `fecha_salida` = '$fecha_salida', `hora_llegada` = '$hora_llegada'
+        SET `nombre_pasajero` = '$nombre_pasajero', `e-mail` = '$email', `telefono_celular` = '$telefono_celular', `id_habitacion` = '$habitacion', `camas` = '$camas', `fecha_llegada` = '$fecha_llegada', `fecha_salida` = '$fecha_salida', `hora_llegada` = '$hora_llegada'
         WHERE `reservas`.`id` = $id;";
 
         $resultado = mysqli_query($conexion, $editar); //ejecuto la accion
     break;
   }
-
-
-
-
-
 echo "ok";
+
+
+
+
+
+
     // $headers = 'MIME-Version: 1.0' . "\r\n";
     // $headers .= "From: " . $email . "\r\n"; // Sender's E-mail
     // $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";

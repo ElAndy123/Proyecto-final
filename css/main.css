@@ -95,6 +95,7 @@ body {
   font-weight: 300;
   line-height: 1.625em;
   position: relative;
+  background-color: #00131d;
 }
 
 ol, ul {
@@ -2473,8 +2474,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 /*-------- Start Banner Area ------------*/
 .banner-area {
-  background: url(../img/logo.jpg) center;
+  background: url(../img/fondo.png) center;
   background-size: cover;
+
 }
 
 .banner-area .overlay-bg {

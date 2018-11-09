@@ -1,11 +1,11 @@
 <?php
   include "config.php";
-  $ver_habitaciones =  "select *
-                        From reservas r
+  $ver_habitaciones =  "select r.fecha_llegada, r.fecha_salida, h.habitacion, r.camas
+                        FROM reservas r
                         INNER JOIN habitaciones h on(r.id_habitacion=h.id)";
   $resultado=mysqli_query($conexion, $ver_habitaciones);
 
-echo "string";
+
 
 ?>
 <div class="row">
@@ -20,6 +20,26 @@ while ($habitacion=mysqli_fetch_array($resultado)) {
   $fecha_llegada_visible = date("d/m/Y", strtotime($fecha_llegada));
   $fecha_salida_visible = date("d/m/Y", strtotime($fecha_salida));
   $camas =  $habitacion["camas"];
+  $cama_matrimonial="";
+  $cama_simple="";
+  $dos_camas="";
+  $default="";
+
+  switch ($camas) {
+    case '1':
+      $camas = "cama matrimonial";
+      break;
+    case '2':
+      $camas = "cama simple";
+      break;
+    case '3':
+      $camas = "dos camas";
+      break;
+    default:
+      $default="selected";
+      break;
+  }
+
 ?>
   <div class="col-lg-4 col-md-6">
     <div class="single-review">
@@ -28,7 +48,7 @@ while ($habitacion=mysqli_fetch_array($resultado)) {
         Ocupada:<br>
         Desde: <?=$fecha_llegada_visible?> <br>
         Hasta: <?=$fecha_salida_visible?> <br>
-        Camas:
+        Camas: <?=$camas?>
       </p>
     </div>
   </div>

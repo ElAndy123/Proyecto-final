@@ -46,7 +46,7 @@
 				</div>
 			</header><!-- #header -->
 		<!-- start banner Area -->
-		<div class="banner-area2">
+		<div class="banner-area">
 
 				<div id="secciones">
 					Aca van las secciones
