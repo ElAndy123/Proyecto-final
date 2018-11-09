@@ -75,14 +75,14 @@ switch ($camas) {
       <input class="form-control txt-field" type="tel" name="celular" value="<?=$telefono_celular?>" placeholder="Telefono celular" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Telefono celular'">
       <div class="form-group">
         <div class="default-select" id="default-select">
-         <select name="camas"  class="form-control txt-field">
+         <select name="habitacion"  class="form-control txt-field">
             <option value="" disabled<?=$default?>>Habitacion</option>
-            <option value="1" <?=$id_habitacion?>>Caléndula</option>
-            <option value="2" <?=$id_habitacion?>>Arrayán</option>
-            <option value="3" <?=$id_habitacion?>>Llanten</option>
-            <option value="4" <?=$id_habitacion?>>Abedul</option>
-            <option value="5" <?=$id_habitacion?>>Tomillo</option>
-            <option value="6" <?=$id_habitacion?>>Chilco</option>
+            <option value="<?=$id_habitacion?>" >Caléndula</option>
+            <option value="<?=$id_habitacion?>">Arrayán</option>
+            <option value="<?=$id_habitacion?>">Llanten</option>
+            <option value="<?=$id_habitacion?>">Abedul</option>
+            <option value="<?=$id_habitacion?>">Tomillo</option>
+            <option value="<?=$id_habitacion?>">Chilco</option>
         </select>
         </div>
       </div>
