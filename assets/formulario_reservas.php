@@ -16,6 +16,15 @@ $cama_matrimonial = "";
 $fecha_llegada_original = "";
 $fecha_llegada_visible = "";
 
+$traer_habitacion = "select h.id, h.habitacion
+From habitaciones h
+WHERE h.suspendida=0";
+$nombre_habitacion = mysqli_query($conexion, $traer_habitacion);
+while ($fila=mysqli_fetch_array($nombre_habitacion)) {
+  $A_id_habitacion[]=$fila["id"];
+  $A_habitacion[]=$fila["habitacion"];
+}
+
 if($id_reserva>0){
 
   $traer = "select *
@@ -77,12 +86,11 @@ switch ($camas) {
         <div class="default-select" id="default-select">
          <select name="habitacion"  class="form-control txt-field">
             <option value="" disabled<?=$default?>>Habitacion</option>
-            <option value="<?=$id_habitacion?>" >Caléndula</option>
-            <option value="<?=$id_habitacion?>">Arrayán</option>
-            <option value="<?=$id_habitacion?>">Llanten</option>
-            <option value="<?=$id_habitacion?>">Abedul</option>
-            <option value="<?=$id_habitacion?>">Tomillo</option>
-            <option value="<?=$id_habitacion?>">Chilco</option>
+            <?php
+            for ($i=0; $i <count($A_habitacion) ; $i++) {
+              echo "<option value='.$A_id_habitacion[$i].' >".$A_habitacion[$i]."</option>";
+            }
+            ?>
         </select>
         </div>
       </div>

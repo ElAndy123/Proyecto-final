@@ -1,7 +1,8 @@
 <?php
   include "config.php";
-  $agregar = "select *
-         From reservas";
+  $agregar = "select r.*, h.habitacion
+              from reservas r
+              INNER JOIN habitaciones h on (r.id_habitacion=h.id)";
   $resultado=mysqli_query($conexion, $agregar);
 
 
@@ -25,12 +26,13 @@
     $fecha_salida =  $fila["fecha_salida"];
     $hora_llegada =  $fila["hora_llegada"];
     $id = $fila["id"];
+    $nombre_habitacion = $fila["habitacion"];
     $fecha_llegada_visible = "";
     $fecha_salida_visible = "";
 //    $fecha_llegada_original = $fecha_llegada;
     $fecha_llegada_visible = date("d/m/Y", strtotime($fecha_llegada));
     $fecha_salida_visible = date("d/m/Y", strtotime($fecha_salida));
-    echo "$nombre_pasajero, $email, $telefono_celular, $id_habitacion, $fecha_llegada_visible, $fecha_salida_visible, $hora_llegada";
+    echo "$nombre_pasajero, $email, $telefono_celular, $nombre_habitacion, $fecha_llegada_visible, $fecha_salida_visible, $hora_llegada";
     echo "<br>";
     echo '<button id_reserva="'.$id.'" class="btn_editar_reserva">Editar</button>
           <button id_reserva="'.$id.'"  class="btn_eliminar_reserva">Eliminar</button>';
