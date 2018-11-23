@@ -1,11 +1,10 @@
-<form id="select">
-<div class="col-lg-4 col-md-6">
+<form id="formulario_buscador">
+<div class="col-lg-12 col-md-6">
   <div class="single-review">
-      <select name="estado" class="form-control txt-field">
+      <select id="select_filtro" name="estado" class="form-control txt-field">
         <option value="1">Todas</option>
         <option value="2">Disponible</option>
         <option value="3">Ocupada</option>
-        <option value="4">En limpieza</option>
       </select>
   </div>
 </div>

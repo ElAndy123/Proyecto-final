@@ -37,7 +37,7 @@ traer_formulario();
       url: "assets/lista_habitaciones.php",
       success: function(result){
 
-            $("#habitaciones").html(result)
+            $("#habitaciones").html(result);
 
       //  alert ("datos guardados: " + result);
       }
@@ -69,6 +69,22 @@ $("#habitaciones").on("click", ".btn_enviar", function(e){
     }
     })
 });
+$("#formulario").change("#select_filtro", function(e){
+  e.preventDefault(); //no recarga pagina
 
+  var datos = $("#formulario_buscador").serialize();
+
+  $.ajax({
+    method:"POST",
+    url: "assets/lista_habitaciones.php",
+    data: datos,
+    success: function(result){
+    alert("traje habitaciones");
+      $("#habitaciones").html(result);
+  }
+  })
+  //alert("estado");
+//  var datos = $("#tipo_estado").serialize();
+});
 
 });

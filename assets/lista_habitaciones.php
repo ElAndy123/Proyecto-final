@@ -20,32 +20,74 @@
 //       $resultado=mysqli_query($conexion, $ver_habitaciones);
 //   break;
 // }
-      $ver_habitaciones =  "select r.fecha_llegada, r.fecha_salida, h.habitacion, r.camas, r.nombre_pasajero, h.suspendida, h.detalle, h.id
-                            FROM reservas r
-                            INNER JOIN habitaciones h on(r.id_habitacion=h.id)";
-      $resultado=mysqli_query($conexion, $ver_habitaciones);
+
+$estado = 1;
+
+if(isset($_POST["estado"])){
+  $estado = $_POST["estado"];
+}
+
+$habitaciones = "SELECT r.fecha_llegada, r.fecha_salida, h.habitacion, r.camas, r.nombre_pasajero, h.suspendida, h.detalle, h.id
+                       FROM reservas r
+                       INNER JOIN habitaciones h on(r.id_habitacion=h.id)";
+      $resultado=mysqli_query($conexion, $habitaciones);
+
+      while ($habitacion=mysqli_fetch_array($resultado)) {
+        $A_id[] = $habitacion["id"];
+        $A_nombre_habitacion[] = $habitacion["habitacion"];
+        $A_fecha_llegada[] =  $habitacion["fecha_llegada"]; //    dd/mm/yyyy
+        $A_fecha_salida[] =  $habitacion["fecha_salida"];
+        $A_nombre_pasajero[] = $habitacion["nombre_pasajero"];
+        $A_suspendida[] = $habitacion["suspendida"];
+        $A_detalle[] = $habitacion["detalle"];
+        $A_camas[] = $habitacion["camas"];
+        $id = $habitacion["id"];
+
+        $hoy = date("Y-m-j");
+        $disponibilidad = "SELECT * FROM `reservas` WHERE `fecha_llegada` <= '$hoy' AND '$hoy' <= `fecha_salida` AND `id_habitacion`= '$id'";
+        $resultado2=mysqli_query($conexion, $disponibilidad);
+
+        if(mysqli_num_rows($resultado2)){
+           $A_estado[] = "Ocupada";
+        } else {
+          $A_estado[] = "Disponible";
+        }
+
+}
+
+
+
 
 ?>
 <div class="row">
 <?php
-while ($habitacion=mysqli_fetch_array($resultado)) {
-  $id = $habitacion["id"];
-  $nombre_habitacion = $habitacion["habitacion"];
-  $fecha_llegada =  $habitacion["fecha_llegada"]; //    dd/mm/yyyy
-  $fecha_salida =  $habitacion["fecha_salida"];
-  $nombre_pasajero = $habitacion["nombre_pasajero"];
-  $suspendida = $habitacion["suspendida"];
-  $detalle = $habitacion["detalle"];
+for ($i=0; $i < count($A_id) ; $i++) {
+  // code...
+
+  $id = $A_id[$i];
+
+
+
+
+  $nombre_habitacion = $A_nombre_habitacion[$i];
+  $fecha_llegada =  $A_fecha_llegada[$i];
+  $fecha_salida =  $A_fecha_salida[$i];
+  $nombre_pasajero = $A_nombre_pasajero[$i];
+  $suspendida = $A_suspendida[$i];
+  $detalle = $A_detalle[$i];
+  $camas =  $A_camas["$i"];
+
+
   $fecha_llegada_visible = "";
   $fecha_salida_visible = "";
 //    $fecha_llegada_original = $fecha_llegada;
   $fecha_llegada_visible = date("d/m/Y", strtotime($fecha_llegada));
   $fecha_salida_visible = date("d/m/Y", strtotime($fecha_salida));
-  $camas =  $habitacion["camas"];
-  $nombre_pasajero = $habitacion["nombre_pasajero"];
-  $cama_matrimonial="";
-  $cama_simple="";
-  $dos_camas="";
+  //$camas =  $habitacion["camas"];
+  //$nombre_pasajero = $habitacion["nombre_pasajero"];
+  // $cama_matrimonial="";
+  // $cama_simple="";
+  // $dos_camas="";
   $default="";
 
   switch ($camas) {
@@ -62,13 +104,31 @@ while ($habitacion=mysqli_fetch_array($resultado)) {
       $default="selected";
       break;
   }
+
+
 if ($suspendida == 1){
   $suspendida = "checked";
 }else {
   $suspendida = "";
 }
 
+
+$mostrar = false;
+if($estado == 1){
+  $mostrar = true;
+}
+if($estado == 2 && $A_estado[$i] == "Disponible" ){
+  $mostrar = true;
+}
+if($estado == 3 && $A_estado[$i] == "Ocupada" ){
+  $mostrar = true;
+}
+
+
+if($mostrar == true){
+
 ?>
+
   <div class="col-lg-4 col-md-6">
     <div class="single-review">
       <h4><?=$nombre_habitacion?></h4>
@@ -76,7 +136,7 @@ if ($suspendida == 1){
         Huesped: <?=$nombre_pasajero?> <br>
         Ocupada hasta: <?=$fecha_salida_visible?> <br>
         Tipo de camas: <?=$camas?><br>
-        Estado: Disponible/Ocupada <br>
+        Estado: <?=$A_estado[$i]?> <br>
         <form id="formulario_detalle_<?=$id?>" >
         Detalle:<input type="text" name="txt_detalle" value="<?=$detalle?>"> <br>
         suspendida:<input type="checkbox" name="chk_suspendida" value="1" <?=$suspendida?>> <br>
@@ -87,6 +147,8 @@ if ($suspendida == 1){
   </div>
 
 <?php
-}
+}  // fin if
+
+} // fin for
 ?>
 </div>
