@@ -40,6 +40,7 @@
 						<ul class="nav-menu">
 							<li class="menu-active"><a href="index.php" secciones="reservas" class="btn_menu">Reservas</a></li>
 							<li><a href="habitaciones.php" secciones="habitaciones" class="btn_menu">Habitaciones</a></li>
+							<li><a href="clientes.php" secciones="clientes" class="btn_menu">Clientes</a></li>
 						</ul>
 					</nav><!-- #nav-menu-container -->
 					</div>
