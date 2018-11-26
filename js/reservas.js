@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
  traer_reservas();
- traer_formulario(0);
+ traer_formulario(0,0);
 
 
  $("#formulario").on("click", "#btn_enviar_reserva", function(e){
@@ -67,11 +67,11 @@ $("#reservas").on("click", ".btn_eliminar_reserva", function(e){
   });
 });
 
-function traer_formulario(id){
+function traer_formulario(id, id_cliente){
   $.ajax({
     method: "POST",
     url: "assets/formulario_reservas.php",
-    data: "id_reserva="+id,
+    data: "id_reserva="+id+"&id_cliente="+id_cliente,
     success: function(result){
 
          $("#formulario").html(result);
@@ -115,12 +115,13 @@ $("#reservas").on("click", ".btn_editar_reserva", function(e){
 
     e.preventDefault(); //no recarga pagina
   var id =  $(this).attr("id_reserva");
-  traer_formulario(id);
+  var id_cliente =  $(this).attr("id_cliente");
+  traer_formulario(id, id_cliente);
 
 });
  $("#formulario").on("click", "#btn_nueva_reserva", function(e){
      e.preventDefault(); //no recarga pagina
-     traer_formulario(0); //recargo y vacio el formulario
+     traer_formulario(0,0); //recargo y vacio el formulario
 });
 
 

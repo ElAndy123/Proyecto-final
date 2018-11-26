@@ -2,7 +2,7 @@
 include "config.php";
 
 $id_reserva = $_POST["id_reserva"];
-
+$id_cliente = $_POST["id_cliente"];
 
 $nombre_pasajero = "";
 $email = "";
@@ -27,15 +27,16 @@ while ($fila=mysqli_fetch_array($nombre_habitacion)) {
 
 if($id_reserva>0){
 
-  $traer = "select *
-         From reservas
-         where id = $id_reserva";
+  $traer = "SELECT r.*, c.nombre, c.`e-mail`, c.telefono
+         FROM reservas r
+         INNER JOIN clientes c on (r.id_cliente=c.id)
+         WHERE r.id = $id_reserva";
   $resultado = mysqli_query($conexion, $traer);
 //  HAcer una consulta a la base de datos y traer los datos de la reserca $id_reserva
       while ($fila=mysqli_fetch_array($resultado)) {
-        $nombre_pasajero = $fila["nombre_pasajero"];
+        $nombre_pasajero = $fila["nombre"];
         $email = $fila["e-mail"];
-        $telefono_celular = $fila["telefono_celular"];
+        $telefono_celular = $fila["telefono"];
         $id_habitacion = $fila["id_habitacion"];
         $camas =  $fila["camas"];                                 //guardo en variables los datos del formulario
         $fecha_llegada =  $fila["fecha_llegada"]; //    dd/mm/yyyy
@@ -130,7 +131,7 @@ switch ($camas) {
       </div>
       <div class="form-group">
 
-              <button class="col-lg-4 col-md-4  btn btn-default btn-lg" id="btn_enviar_reserva" id_reserva="<?=$id_reserva?>">Enviar</button>
+              <button class="col-lg-4 col-md-4  btn btn-default btn-lg" id="btn_enviar_reserva" id_reserva="<?=$id_reserva?>" id_cliente="<?=$id_cliente?>" >Enviar</button>
               <button class="col-lg-6 col-md-6  btn btn-default btn-lg" id="btn_nueva_reserva">Nueva reserva</button>
 
       </div>

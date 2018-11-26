@@ -23,7 +23,7 @@ $(document).ready(function() {
           alert ("cliente cargado correctamente");
            traer_clientes();
         } else {
-          alert ("Complete todos los datos")
+          alert ("Complete todos los datos");
         }
       }
     });

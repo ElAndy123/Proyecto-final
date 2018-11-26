@@ -27,9 +27,10 @@ if(isset($_POST["estado"])){
   $estado = $_POST["estado"];
 }
 
-$habitaciones = "SELECT r.fecha_llegada, r.fecha_salida, h.habitacion, r.camas, r.nombre_pasajero, h.suspendida, h.detalle, h.id
-                       FROM reservas r
-                       INNER JOIN habitaciones h on(r.id_habitacion=h.id)";
+$habitaciones = "SELECT r.fecha_llegada, r.fecha_salida, h.habitacion, r.camas, r.nombre_pasajero, h.suspendida, h.detalle, h.id, c.id as id_cliente, c.nombre
+                       FROM habitaciones h
+                       LEFT JOIN reservas r on(r.id_habitacion=h.id)
+                       LEFT JOIN clientes c on (r.id_cliente=c.id)";
       $resultado=mysqli_query($conexion, $habitaciones);
 
       while ($habitacion=mysqli_fetch_array($resultado)) {
@@ -37,7 +38,7 @@ $habitaciones = "SELECT r.fecha_llegada, r.fecha_salida, h.habitacion, r.camas, 
         $A_nombre_habitacion[] = $habitacion["habitacion"];
         $A_fecha_llegada[] =  $habitacion["fecha_llegada"]; //    dd/mm/yyyy
         $A_fecha_salida[] =  $habitacion["fecha_salida"];
-        $A_nombre_pasajero[] = $habitacion["nombre_pasajero"];
+        $A_nombre_pasajero[] = $habitacion["nombre"];
         $A_suspendida[] = $habitacion["suspendida"];
         $A_detalle[] = $habitacion["detalle"];
         $A_camas[] = $habitacion["camas"];
@@ -49,8 +50,10 @@ $habitaciones = "SELECT r.fecha_llegada, r.fecha_salida, h.habitacion, r.camas, 
 
         if(mysqli_num_rows($resultado2)){
            $A_estado[] = "Ocupada";
+           $A_estado_imprimir[] = "<span style='color: red'> Ocupada <span>";
         } else {
           $A_estado[] = "Disponible";
+          $A_estado_imprimir[] = "<span style='color: #f4e700'> Disponible <span>";
         }
 
 }
@@ -82,7 +85,9 @@ for ($i=0; $i < count($A_id) ; $i++) {
   $fecha_salida_visible = "";
 //    $fecha_llegada_original = $fecha_llegada;
   $fecha_llegada_visible = date("d/m/Y", strtotime($fecha_llegada));
+  if($fecha_salida){
   $fecha_salida_visible = date("d/m/Y", strtotime($fecha_salida));
+  }
   //$camas =  $habitacion["camas"];
   //$nombre_pasajero = $habitacion["nombre_pasajero"];
   // $cama_matrimonial="";
@@ -136,7 +141,7 @@ if($mostrar == true){
         Huesped: <?=$nombre_pasajero?> <br>
         Ocupada hasta: <?=$fecha_salida_visible?> <br>
         Tipo de camas: <?=$camas?><br>
-        Estado: <?=$A_estado[$i]?> <br>
+        Estado: <?=$A_estado_imprimir[$i]?><br>
         <form id="formulario_detalle_<?=$id?>" >
         Detalle:<input type="text" name="txt_detalle" value="<?=$detalle?>"> <br>
         suspendida:<input type="checkbox" name="chk_suspendida" value="1" <?=$suspendida?>> <br>
