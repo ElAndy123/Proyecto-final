@@ -1,13 +1,28 @@
 <?php
   include "config.php";
 
-  $agregar = "select r.*, h.habitacion, c.nombre, c.apellido, c.telefono, c.`e-mail`, c.id as id_cliente 
+  $agregar = "select r.*, h.habitacion, c.nombre, c.apellido, c.telefono, c.`e-mail`, c.id as id_cliente
               from reservas r
               INNER JOIN habitaciones h on (r.id_habitacion=h.id)
               INNER JOIN clientes c on (r.id_cliente=c.id)";
 
   $resultado=mysqli_query($conexion, $agregar);
+  ?>
+    <table class="table table-striped table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
 
+
+          <th scope="col">Habitacion</th>
+          <th scope="col">Llegada</th>
+          <th scope="col">Salida</th>
+          <th scope="col">Hora llegada</th>
+          <th scope="col">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+<?php
   while ($fila=mysqli_fetch_array($resultado)) {
     $nombre_pasajero = $fila["nombre"];
     $apellido = $fila["apellido"];
@@ -26,11 +41,19 @@
 
     $fecha_llegada_visible = date("d/m/Y", strtotime($fecha_llegada));
     $fecha_salida_visible = date("d/m/Y", strtotime($fecha_salida));
+?>
+  <tr>
+    <th><?=$nombre_pasajero?></th>
 
-    echo "$nombre_pasajero, $apellido, $email, $telefono_celular, $nombre_habitacion, $fecha_llegada_visible, $fecha_salida_visible, $hora_llegada";
-    echo "<br>";
-    echo '<button id_reserva="'.$id.'" id_cliente="'.$id_cliente.'" class="btn_editar_reserva">Editar</button>
-          <button id_reserva="'.$id.'"  class="btn_eliminar_reserva">Eliminar</button>';
-    echo "<br>";
+
+    <th><?=$nombre_habitacion?></th>
+    <th><?=$fecha_llegada_visible?></th>
+    <th><?=$fecha_salida_visible?></th>
+    <th><?=$hora_llegada?></th>
+    <th><button id_reserva="<?=$id?>" id_cliente="'.$id_cliente.'" class="btn_editar_reserva">Editar</button>
+    <button id_reserva="<?=$id?>"  class="btn_eliminar_reserva">Eliminar</button>
+    </th>
+</tr>
+<?php
   }
 ?>

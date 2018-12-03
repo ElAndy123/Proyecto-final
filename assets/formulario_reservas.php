@@ -28,7 +28,7 @@ while ($fila=mysqli_fetch_array($nombre_habitacion)) {
 
 if($id_reserva>0){
 
-  $traer = "SELECT r.*, c.nombre, c.apellido, c.`e-mail`, c.telefono,
+  $traer = "SELECT r.*, c.nombre, c.apellido, c.`e-mail`, c.telefono
          FROM reservas r
          INNER JOIN clientes c on (r.id_cliente=c.id)
          WHERE r.id = $id_reserva";

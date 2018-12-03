@@ -5,7 +5,7 @@
   $resultado=mysqli_query($conexion, $agregar);
 
 ?>
-  <table class="table">
+  <table class="table table-striped table-dark">
     <thead>
       <tr>
         <th scope="col">Nombre</th>
