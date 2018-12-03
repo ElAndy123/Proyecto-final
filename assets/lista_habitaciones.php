@@ -1,26 +1,6 @@
 <?php
   include "config.php";
 
-// switch ($estado) {
-//   case '1':
-//     $habitaciones_disponibles = "select h.estado
-//                                 FROM habitaciones h reservas r
-//                                 where ";
-//     break;
-//   case '2':
-//       $habitaciones_ocupadas = "";
-//   break;
-//   case '3':
-//       $habitaciones_en_limpieza ="";
-//   break;
-//   default:
-//       $ver_habitaciones =  "select r.fecha_llegada, r.fecha_salida, h.habitacion, r.camas, r.nombre_pasajero
-//                             FROM reservas r
-//                             INNER JOIN habitaciones h on(r.id_habitacion=h.id)";
-//       $resultado=mysqli_query($conexion, $ver_habitaciones);
-//   break;
-// }
-
 $estado = 1;
 
 if(isset($_POST["estado"])){
@@ -58,19 +38,12 @@ $habitaciones = "SELECT r.fecha_llegada, r.fecha_salida, h.habitacion, r.camas, 
 
 }
 
-
-
-
 ?>
 <div class="row">
 <?php
 for ($i=0; $i < count($A_id) ; $i++) {
-  // code...
 
   $id = $A_id[$i];
-
-
-
 
   $nombre_habitacion = $A_nombre_habitacion[$i];
   $fecha_llegada =  $A_fecha_llegada[$i];
@@ -80,21 +53,15 @@ for ($i=0; $i < count($A_id) ; $i++) {
   $detalle = $A_detalle[$i];
   $camas =  $A_camas["$i"];
 
-
   $fecha_llegada_visible = "";
   $fecha_salida_visible = "";
-//    $fecha_llegada_original = $fecha_llegada;
+
   $fecha_llegada_visible = date("d/m/Y", strtotime($fecha_llegada));
   if($fecha_salida){
   $fecha_salida_visible = date("d/m/Y", strtotime($fecha_salida));
   }
-  //$camas =  $habitacion["camas"];
-  //$nombre_pasajero = $habitacion["nombre_pasajero"];
-  // $cama_matrimonial="";
-  // $cama_simple="";
-  // $dos_camas="";
-  $default="";
 
+  $default="";
   switch ($camas) {
     case '1':
       $camas = "cama matrimonial";
@@ -129,11 +96,9 @@ if($estado == 3 && $A_estado[$i] == "Ocupada" ){
   $mostrar = true;
 }
 
-
 if($mostrar == true){
 
 ?>
-
   <div class="col-lg-4 col-md-6">
     <div class="single-review">
       <h4><?=$nombre_habitacion?></h4>
@@ -150,10 +115,8 @@ if($mostrar == true){
       </p>
     </div>
   </div>
-
 <?php
 }  // fin if
-
 } // fin for
 ?>
 </div>

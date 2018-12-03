@@ -25,22 +25,11 @@ switch ($estado) {
     break;
 }
 
-
-
-
-
-
-
-
-
 $info_habitacion = "UPDATE `proyecto`.`habitaciones`
                     SET `suspendida` = '$suspendida', `detalle` = '$detalle'
                     WHERE `habitaciones`.`id` = $id";
 
 $resultado = mysqli_query($conexion, $info_habitacion);
 echo "info subida";
-
-
-
 
 ?>

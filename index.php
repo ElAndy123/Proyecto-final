@@ -15,11 +15,7 @@
 	<meta charset="UTF-8">
 	<!-- Site Title -->
 	<title>Fast Reserv</title>
-
-	<!-- <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> -->
-		<!--
-		CSS
-		============================================= -->
+		<!--CSS============================================= -->
 		<link rel="stylesheet" href="css/linearicons.css">
 		<link rel="stylesheet" href="css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/bootstrap.css">
@@ -48,18 +44,15 @@
 			</header><!-- #header -->
 		<!-- start banner Area -->
 		<div class="banner-area">
-
 				<div id="secciones">
 					Aca van las secciones
 				</div>
-
 		</div>
 		<!-- End banner Area -->
 		<!-- End footer Area -->
 		<script src="js/vendor/jquery-2.2.4.min.js"></script>
 		<script src="js/popper/popper.min.js"></script>
 		<script src="js/vendor/bootstrap.min.js"></script>
-		<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script> -->
 		<script src="js/easing.min.js"></script>
 		<script src="js/hoverIntent.js"></script>
 		<script src="js/superfish.min.js"></script>

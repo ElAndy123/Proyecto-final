@@ -3,7 +3,6 @@ $(document).ready(function() {
  traer_reservas();
  traer_formulario(0,0);
 
-
  $("#formulario").on("click", "#btn_enviar_reserva", function(e){
     e.preventDefault(); //no recarga pagina
     var id_reserva = $(this).attr("id_reserva"); //attr atributo
@@ -19,15 +18,11 @@ $(document).ready(function() {
       data: datos+"&a="+tipo_envio+"&id_reserva="+id_reserva,            //datos que mando
       success: function(result){        //es el resultado de lo que halla hecho el ajax
         if(result=="ok"){
-          alert ("Reserva cargada correctamente");
            traer_reservas();
         } else {
-          alert ("Complete todos los datos")
         }
       }
     });
-
-
   });
 });
 
@@ -36,18 +31,12 @@ function traer_reservas(){
     method: "POST",
     url: "assets/lista_reservas.php",
     success: function(result){
-
          $("#reservas").html(result)
-
-    //  alert ("datos guardados: " + result);
     }
   });
 }
 
-
-// $(".btn_eliminar_reserva").click(function(e){
 $("#reservas").on("click", ".btn_eliminar_reserva", function(e){
-
     e.preventDefault(); //no recarga pagina
   var id =  $(this).attr("id_reserva");
   $.ajax({
@@ -73,7 +62,6 @@ function traer_formulario(id, id_cliente){
     url: "assets/formulario_reservas.php",
     data: "id_reserva="+id+"&id_cliente="+id_cliente,
     success: function(result){
-
          $("#formulario").html(result);
          funciones_formulario();
     }
@@ -91,8 +79,6 @@ function traer_formulario(id, id_cliente){
     });
     // $( "#datepicker2" ).datepicker();
      $( "#datepicker1" ).datepicker( "option", "dateFormat","dd/mm/yy");
-
-
       $( "#datepicker2" ).datepicker({
         altField: "#fs",
         altFormat: "yy-mm-dd"
@@ -112,19 +98,12 @@ function traer_formulario(id, id_cliente){
   } ;
 
 $("#reservas").on("click", ".btn_editar_reserva", function(e){
-
-    e.preventDefault(); //no recarga pagina
+  e.preventDefault(); //no recarga pagina
   var id =  $(this).attr("id_reserva");
   var id_cliente =  $(this).attr("id_cliente");
   traer_formulario(id, id_cliente);
-
 });
  $("#formulario").on("click", "#btn_nueva_reserva", function(e){
      e.preventDefault(); //no recarga pagina
      traer_formulario(0,0); //recargo y vacio el formulario
 });
-
-
-//Seccion HABITACIONES//Seccion HABITACIONES//Seccion HABITACIONES//Seccion HABITACIONES
-////Seccion HABITACIONES//Seccion HABITACIONES//Seccion HABITACIONES//Seccion HABITACIONES
-////Seccion HABITACIONES//Seccion HABITACIONES//Seccion HABITACIONES//Seccion HABITACIONES

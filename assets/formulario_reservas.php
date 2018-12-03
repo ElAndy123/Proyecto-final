@@ -5,6 +5,7 @@ $id_reserva = $_POST["id_reserva"];
 $id_cliente = $_POST["id_cliente"];
 
 $nombre_pasajero = "";
+$apellido = "";
 $email = "";
 $telefono_celular = "";
 $id_habitacion =  "";
@@ -27,14 +28,15 @@ while ($fila=mysqli_fetch_array($nombre_habitacion)) {
 
 if($id_reserva>0){
 
-  $traer = "SELECT r.*, c.nombre, c.`e-mail`, c.telefono
+  $traer = "SELECT r.*, c.nombre, c.apellido, c.`e-mail`, c.telefono,
          FROM reservas r
          INNER JOIN clientes c on (r.id_cliente=c.id)
          WHERE r.id = $id_reserva";
   $resultado = mysqli_query($conexion, $traer);
-//  HAcer una consulta a la base de datos y traer los datos de la reserca $id_reserva
+
       while ($fila=mysqli_fetch_array($resultado)) {
         $nombre_pasajero = $fila["nombre"];
+        $apellido = $fila["apellido"];
         $email = $fila["e-mail"];
         $telefono_celular = $fila["telefono"];
         $id_habitacion = $fila["id_habitacion"];
@@ -45,7 +47,6 @@ if($id_reserva>0){
         $id_reserva = $fila["id"];
         $fecha_llegada_visible = "";
         $fecha_salida_visible = "";
-    //    $fecha_llegada_original = $fecha_llegada;
         $fecha_llegada_visible = date("d/m/Y", strtotime($fecha_llegada));
         $fecha_salida_visible = date("d/m/Y", strtotime($fecha_salida));
       }
@@ -70,17 +71,12 @@ switch ($camas) {
     break;
 }
 
-
-
 ?>
-
-
-
-
   <h4 class="pb-30"></h4>
   <form class="form" id="form_reservas">
       <div class="from-group">
-      <input class="form-control txt-field" type="text" name="nombre_pasajero" value="<?=$nombre_pasajero?>" placeholder="Nombre del pasajero"  onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nombre pasajero'">
+      <input class="form-control txt-field" type="text" name="nombre_pasajero" value="<?=$nombre_pasajero?>" placeholder="Nombre"  onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nombre'">
+      <input class="form-control txt-field" type="text" name="apellido" value="<?=$apellido?>" placeholder="Apellido"  onfocus="this.placeholder = ''" onblur="this.placeholder = 'Apellido'">
       <input class="form-control txt-field" type="email" name="email" value="<?=$email?>" placeholder="E-mail" onfocus="this.placeholder = ''" onblur="this.placeholder = 'E-mail'">
       <input class="form-control txt-field" type="tel" name="celular" value="<?=$telefono_celular?>" placeholder="Telefono celular" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Telefono celular'">
       <div class="form-group">
@@ -130,9 +126,7 @@ switch ($camas) {
         </div>
       </div>
       <div class="form-group">
-
               <button class="col-lg-4 col-md-4  btn btn-default btn-lg" id="btn_enviar_reserva" id_reserva="<?=$id_reserva?>" id_cliente="<?=$id_cliente?>" >Enviar</button>
               <button class="col-lg-6 col-md-6  btn btn-default btn-lg" id="btn_nueva_reserva">Nueva reserva</button>
-
       </div>
   </form>

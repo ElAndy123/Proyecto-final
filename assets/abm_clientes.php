@@ -4,6 +4,7 @@
     $abm = $_POST["a"];
 
   switch ($abm) {
+    
     case 'alta':
         $nombre = $_POST["nombre"];
         $apellido = $_POST["apellido"];
@@ -40,7 +41,5 @@
     break;
   }
 echo "ok";
-
-
 
 ?>
