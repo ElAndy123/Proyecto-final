@@ -10,7 +10,8 @@ if(isset($_POST["estado"])){
 $habitaciones = "SELECT r.fecha_llegada, r.fecha_salida, h.habitacion, r.camas, r.nombre_pasajero, h.suspendida, h.detalle, h.id, c.id as id_cliente, c.nombre
                        FROM habitaciones h
                        LEFT JOIN reservas r on(r.id_habitacion=h.id)
-                       LEFT JOIN clientes c on (r.id_cliente=c.id)";
+                       LEFT JOIN clientes c on (r.id_cliente=c.id)
+                       GROUP BY h.habitacion";
       $resultado=mysqli_query($conexion, $habitaciones);
 
       while ($habitacion=mysqli_fetch_array($resultado)) {
