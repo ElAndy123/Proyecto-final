@@ -19,11 +19,13 @@ $(document).ready(function() {
       success: function(result){        //es el resultado de lo que halla hecho el ajax
         if(result=="ok"){
            traer_clientes();
+           alert ("Cliente cargado correctamente");
         } else {
+          alert ("Complete todos los datos");
         }
       }
     });
-
+    traer_formulario(0);
   });
 });
 
@@ -48,6 +50,9 @@ $("#clientes").on("click", ".btn_eliminar_cliente", function(e){
       if(result=="ok"){
         traer_clientes();
         traer_formulario(0);
+        alert ("Cliente borrado correctamente");
+      }else {
+        alert("No se pudo eliminar el cliente");
       }
     }
   });

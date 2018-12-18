@@ -34,6 +34,7 @@ $("#habitaciones").on("click", ".btn_enviar", function(e){
       success: function(result){
     }
     })
+    alert ("Informacion de la habitacion actualizada correctamente");
 });
 
 $("#formulario").change("#select_filtro", function(e){

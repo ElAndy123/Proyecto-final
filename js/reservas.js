@@ -19,7 +19,10 @@ $(document).ready(function() {
       success: function(result){        //es el resultado de lo que halla hecho el ajax
         if(result=="ok"){
            traer_reservas();
+           traer_formulario(0,0);
+           alert ("Reserva cargada correctamente");
         } else {
+          alert ("Complete todos los datos");
         }
       }
     });
@@ -51,7 +54,6 @@ $("#reservas").on("click", ".btn_eliminar_reserva", function(e){
       } else {
         alert ("No se pudo eliminar");
       }
-    //  alert ("datos guardados: " + result);
     }
   });
 });

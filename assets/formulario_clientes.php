@@ -45,6 +45,6 @@ if($id_cliente>0){
       </div>
       <div class="form-group">
               <button class="col-lg-4 col-md-4  btn btn-default btn-lg" id="btn_enviar_cliente" id_cliente="<?=$id_cliente?>">Enviar</button>
-              <button class="col-lg-6 col-md-6  btn btn-default btn-lg" id="btn_nuevo_cliente">Nueva reserva</button>
+              <button class="col-lg-6 col-md-6  btn btn-default btn-lg" id="btn_nuevo_cliente">Limpiar</button>
       </div>
   </form>
