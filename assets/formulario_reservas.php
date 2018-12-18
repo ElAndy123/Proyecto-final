@@ -84,8 +84,12 @@ switch ($camas) {
          <select name="habitacion"  class="form-control txt-field">
             <option value="" disabled<?=$default?>>Habitacion</option>
             <?php
-            for ($i=0; $i <count($A_habitacion) ; $i++) {
-              echo "<option value='.$A_id_habitacion[$i].' >".$A_habitacion[$i]."</option>";
+            for ($i=0; $i < count($A_habitacion) ; $i++) {
+              if($A_id_habitacion[$i]==$id_habitacion){
+                echo "<option value='".$A_id_habitacion[$i]."' selected >".$A_habitacion[$i]."</option>";
+              }else {
+                echo "<option value='".$A_id_habitacion[$i]."' >".$A_habitacion[$i]."</option>";
+              }
             }
             ?>
         </select>

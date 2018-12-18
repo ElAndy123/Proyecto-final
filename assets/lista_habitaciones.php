@@ -8,10 +8,10 @@ if(isset($_POST["estado"])){
 }
 
 $habitaciones = "SELECT r.fecha_llegada, r.fecha_salida, h.habitacion, r.camas, r.nombre_pasajero, h.suspendida, h.detalle, h.id, c.id as id_cliente, c.nombre
-                       FROM habitaciones h
-                       LEFT JOIN reservas r on(r.id_habitacion=h.id)
-                       LEFT JOIN clientes c on (r.id_cliente=c.id)
-                       GROUP BY h.habitacion";
+                 FROM habitaciones h
+                 LEFT JOIN reservas r on(r.id_habitacion=h.id)
+                 LEFT JOIN clientes c on (r.id_cliente=c.id)
+                 GROUP BY h.habitacion ";
       $resultado=mysqli_query($conexion, $habitaciones);
 
       while ($habitacion=mysqli_fetch_array($resultado)) {
@@ -104,9 +104,15 @@ if($mostrar == true){
     <div class="single-review">
       <h4><?=$nombre_habitacion?></h4>
       <p>
-        Huesped: <?=$nombre_pasajero?> <br>
-        Ocupada hasta: <?=$fecha_salida_visible?> <br>
-        Tipo de camas: <?=$camas?><br>
+        <?php
+        if ($A_estado[$i]=="Ocupada") {
+        ?>
+          Huesped: <?=$nombre_pasajero?> <br>
+          Ocupada hasta: <?=$fecha_salida_visible?> <br>
+          Tipo de camas: <?=$camas?><br>
+        <?php
+        }
+        ?>
         Estado: <?=$A_estado_imprimir[$i]?><br>
         <form id="formulario_detalle_<?=$id?>" >
         Detalle:<input type="text" name="txt_detalle" value="<?=$detalle?>"> <br>

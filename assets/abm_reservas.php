@@ -35,9 +35,10 @@
     break;
     case 'modi':
         $id = $_POST["id_reserva"];
-        $nombre_pasajero = $_POST["nombre"];
-        $email = $_POST["e-mail"];
-        $telefono_celular = $_POST["telefono"];
+        $nombre_pasajero = $_POST["nombre_pasajero"];
+        $apellido = $_POST["apellido"];
+        $email = $_POST["email"];
+        $telefono_celular = $_POST["celular"];
         $habitacion = $_POST["habitacion"];                                      //recibo las variables por post
         $camas =  $_POST["camas"];
         $fecha_llegada =  $_POST["fecha_llegada"]; //    dd/mm/yyyy
@@ -50,7 +51,7 @@
         $resultado = mysqli_query($conexion, $editar); //ejecuto la accion
 
         $editar_cliente = "UPDATE `proyecto`.`clientes`
-        SET `nombre` = '$nombre_pasajero', `e-mail` = '$email', `telefono` = '$telefono_celular'
+        SET `nombre` = '$nombre_pasajero', `apellido` = '$apellido', `e-mail` = '$email', `telefono` = '$telefono_celular'
         WHERE `clientes`.`id` = $id;";
         $resultado = mysqli_query($conexion, $editar_cliente); //ejecuto la accion
 

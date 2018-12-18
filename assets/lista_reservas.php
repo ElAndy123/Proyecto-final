@@ -50,7 +50,7 @@
     <th><?=$fecha_llegada_visible?></th>
     <th><?=$fecha_salida_visible?></th>
     <th><?=$hora_llegada?></th>
-    <th><button id_reserva="<?=$id?>" id_cliente="'.$id_cliente.'" class="btn_editar_reserva">Editar</button>
+    <th><button id_reserva="<?=$id?>" id_cliente="<?=$id_cliente?>" class="btn_editar_reserva">Editar</button>
     <button id_reserva="<?=$id?>"  class="btn_eliminar_reserva">Eliminar</button>
     </th>
 </tr>

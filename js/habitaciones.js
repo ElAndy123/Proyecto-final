@@ -26,7 +26,6 @@ function traer_formulario(){
 $("#habitaciones").on("click", ".btn_enviar", function(e){
       e.preventDefault(); //no recarga pagina
       var id = $(this).attr("id_habitacion");
-      alert(id);
       var datos = $("#formulario_detalle_"+id).serialize();
     $.ajax({
       method:"POST",

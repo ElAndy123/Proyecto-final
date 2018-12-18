@@ -4,7 +4,7 @@
     $abm = $_POST["a"];
 
   switch ($abm) {
-    
+
     case 'alta':
         $nombre = $_POST["nombre"];
         $apellido = $_POST["apellido"];
@@ -28,15 +28,14 @@
         $id = $_POST["id_cliente"];
         $nombre = $_POST["nombre"];
         $apellido = $_POST["apellido"];
-        $email = $_POST["e-mail"];
+        $email = $_POST["email"];
         $telefono = $_POST["telefono"];
         $DNI = $_POST["DNI"];                                      //recibo las variables por post
         $residencia = $_POST["residencia"];
 
         $editar = "UPDATE `proyecto`.`clientes`
-        SET `nombre` = '$nombre', `e-mail` = '$email', `telefono` = '$telefono', `DNI` = '$DNI', `apellido` = '$apellido', `residencia` = '$residencia'
-        WHERE `reservas`.`id` = $id;";
-
+        SET `nombre` = '$nombre', `apellido` = '$apellido', `e-mail` = '$email', `telefono` = '$telefono', `DNI` = '$DNI', `apellido` = '$apellido', `residencia` = '$residencia'
+        WHERE `clientes`.`id` = $id;";
         $resultado = mysqli_query($conexion, $editar); //ejecuto la accion
     break;
   }
