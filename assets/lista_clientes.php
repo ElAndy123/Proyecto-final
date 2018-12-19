@@ -40,8 +40,3 @@
   ?>
 </tbody>
 </table>
-    <!-- echo "$nombre, $apellido, $email, $telefono, $DNI, $residencia";
-    echo "<br>";
-    echo '<button id_cliente="'.$id.'" class="btn_editar_cliente">Editar</button>
-          <button id_cliente="'.$id.'"  class="btn_eliminar_cliente">Eliminar</button>';
-    echo "<br>"; -->

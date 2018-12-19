@@ -21,7 +21,7 @@ $(document).ready(function() {
            traer_clientes();
            alert ("Cliente cargado correctamente");
         } else {
-          alert ("Complete todos los datos");
+          alert("comlete todos los campos");
         }
       }
     });
@@ -51,8 +51,6 @@ $("#clientes").on("click", ".btn_eliminar_cliente", function(e){
         traer_clientes();
         traer_formulario(0);
         alert ("Cliente borrado correctamente");
-      }else {
-        alert("No se pudo eliminar el cliente");
       }
     }
   });

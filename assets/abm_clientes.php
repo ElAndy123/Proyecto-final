@@ -16,10 +16,11 @@
         $agregar = "INSERT INTO `proyecto`.`clientes` (`nombre`, `apellido`, `e-mail`, `telefono`, `DNI`,  `residencia`) VALUES
                                                       ('$nombre', '$apellido', '$email', '$telefono', '$DNI',  '$residencia');";
                                                         //guardo los datos del formulario en la base de datos
-        if(empty($nombre)||empty($apellido)||empty($telefono)){
-        $resultado = mysqli_query($conexion, $agregar); //ejecuto la accion
+        if(empty($nombre)||empty($apellido)){
         echo "Complete todos los campos";
-        }
+      }else {
+        $resultado = mysqli_query($conexion, $agregar); //ejecuto la accion
+      }
     break;
     case 'baja':
         $id = $_POST["id_cliente"];
